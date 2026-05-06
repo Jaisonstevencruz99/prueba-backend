@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install deps
+        run: pip install django djangorestframework pymongo flake8
+
+      - name: Lint
+        run: flake8 .
+
+      - name: Check Django
+        run: python manage.py check
+
+      - name: Build Docker
+        run: docker build -t app .
