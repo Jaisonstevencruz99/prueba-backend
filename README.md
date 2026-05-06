@@ -1,4 +1,4 @@
-# Prueba Técnica Backend - Django + Mongo + Docker
+# Prueba Técnica Backend 
 
 ## Descripción
 
