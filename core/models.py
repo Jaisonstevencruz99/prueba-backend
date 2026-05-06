@@ -22,3 +22,11 @@ class OrderItem(models.Model):
 class Delivery(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     status = models.CharField(max_length=50)
+
+
+def user_serializer(user) -> dict:
+    return {
+        "id": str(user["_id"]),
+        "name": user.get("name"),
+        "email": user.get("email")
+    }
